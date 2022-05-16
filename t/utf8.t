@@ -1,12 +1,5 @@
 #!perl -w
 
-BEGIN {
-    if ($] < 5.006) {
-	print "1..0 # Skipped: your perl don't know unicode\n";
-	exit;
-    }
-}
-
 use strict;
 use warnings;
 

@@ -3,7 +3,7 @@ package Digest::MD5;
 use strict;
 use warnings;
 
-our $VERSION = '2.58';
+our $VERSION = '2.59';
 
 require Exporter;
 *import = \&Exporter::import;
@@ -54,14 +54,14 @@ Digest::MD5 - Perl interface to the MD5 Algorithm
  # Functional style
  use Digest::MD5 qw(md5 md5_hex md5_base64);
 
- $digest = md5($data);
- $digest = md5_hex($data);
- $digest = md5_base64($data);
+ my $digest = md5($data);
+ my $digest = md5_hex($data);
+ my $digest = md5_base64($data);
 
  # OO style
  use Digest::MD5;
 
- $ctx = Digest::MD5->new;
+ my $ctx = Digest::MD5->new;
 
  $ctx->add($data);
  $ctx->addfile($file_handle);
@@ -259,10 +259,10 @@ The same checksum can also be calculated in OO style:
 
     use Digest::MD5;
     
-    $md5 = Digest::MD5->new;
+    my $md5 = Digest::MD5->new;
     $md5->add('foo', 'bar');
     $md5->add('baz');
-    $digest = $md5->hexdigest;
+    my $digest = $md5->hexdigest;
     
     print "Digest is $digest\n";
 
@@ -278,7 +278,7 @@ This is useful when calculating checksum for files:
     open (my $fh, '<', $filename) or die "Can't open '$filename': $!";
     binmode($fh);
 
-    $md5 = Digest::MD5->new;
+    my $md5 = Digest::MD5->new;
     while (<$fh>) {
         $md5->add($_);
     }
